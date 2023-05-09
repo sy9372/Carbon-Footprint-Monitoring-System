@@ -5,8 +5,7 @@ const defaultSettings = require('./src/settings.js')
 function resolve(dir) {
   return path.join(__dirname, dir)
 }
-
-const name = defaultSettings.title || 'vue Admin Template' // page title
+const name = defaultSettings.title || 'Vue Admin Template' // page title
 
 // If your port is set to 80,
 // use administrator privileges to execute the command line.
@@ -34,7 +33,7 @@ module.exports = {
     open: true,
     overlay: {
       warnings: false,
-      errors: true
+      errors: false
     },
     before: require('./mock/mock-server.js')
   },
@@ -87,7 +86,7 @@ module.exports = {
             .plugin('ScriptExtHtmlWebpackPlugin')
             .after('html')
             .use('script-ext-html-webpack-plugin', [{
-            // `runtime` must same as runtimeChunk name. default is `runtime`
+              // `runtime` must same as runtimeChunk name. default is `runtime`
               inline: /runtime\..*\.js$/
             }])
             .end()

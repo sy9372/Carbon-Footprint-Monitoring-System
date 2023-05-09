@@ -51,41 +51,118 @@ export const constantRoutes = [
       path: 'dashboard',
       name: 'Dashboard',
       component: () => import('@/views/dashboard/index'),
-      meta: { title: 'Dashboard', icon: 'dashboard' }
+      meta: { title: '首页', icon: 'dashboard' }
     }]
   },
 
   {
-    path: '/example',
+    path: '/carbonemission',
+    name: 'CarbonEmission',
+    meta: { title: '全流程碳排监控', icon: 'el-icon-s-help' },
     component: Layout,
-    redirect: '/example/table',
-    name: 'Example',
-    meta: { title: 'Example', icon: 'el-icon-s-help' },
+    redirect: '/carbonemission/emissionsituation',
     children: [
       {
-        path: 'table',
-        name: 'Table',
-        component: () => import('@/views/table/index'),
-        meta: { title: 'Table', icon: 'table' }
+        path: 'emissionsituation',
+        name: 'EmissionSituation',
+        component: () => import('@/views/WprocessCarbonEmission/EmissionSituation/index'),
+        meta: { title: '全流程碳排情况' }
       },
       {
-        path: 'tree',
-        name: 'Tree',
-        component: () => import('@/views/tree/index'),
-        meta: { title: 'Tree', icon: 'tree' }
+        path: 'emissionplanning',
+        name: 'EmissionPlanning',
+        component: () => import('@/views/WprocessCarbonEmission/EmissionPlanning/index'),
+        meta: { title: '全流程碳排计划' }
+      },
+      {
+        path: 'carbonlabel',
+        name: 'CarbonLabel',
+        component: () => import('@/views/WprocessCarbonEmission/CarbonLabel/index'),
+        meta: { title: '关键产品碳标签' }
+      },
+      {
+        path: 'efficiencymonitor',
+        name: 'EfficiencyMonitor',
+        component: () => import('@/views/WprocessCarbonEmission/EfficiencyMonitor/index'),
+        meta: { title: '碳效率监控' }
       }
     ]
   },
 
   {
-    path: '/form',
+    path: '/dataquery',
+    name: 'DataQuery',
+    meta: { title: '能耗/碳排数据查询', icon: 'form' },
     component: Layout,
+    redirect: '/dataquery/refiningdepartment',
     children: [
       {
-        path: 'index',
-        name: 'Form',
-        component: () => import('@/views/form/index'),
-        meta: { title: 'Form', icon: 'form' }
+        path: 'refiningdepartment',
+        name: 'RefiningDepartment',
+        component: () => import('@/views/DataQuery/RefiningDepartment/index'),
+        meta: { title: '炼油部' }
+      },
+      {
+        path: 'refiningdepartment',
+        name: 'RefiningDepartment',
+        component: () => import('@/views/DataQuery/RefiningDepartment/index'),
+        meta: { title: '炼油部' }
+      }
+    ]
+  },
+
+  {
+    path: '/wprocesscarbonemission',
+    component: Layout,
+    redirect: '/wprocesscarbonemission/criticalequipment',
+    name: 'WprocessCarbonEmission',
+    meta: { title: '全流程能效监控', icon: 'nested' },
+    children: [
+      {
+        path: 'criticalequipment',
+        name: 'CriticalEquipment',
+        component: () => import('@/views/WproEnergyMonitoring/CriticalEquipment/index'),
+        meta: { title: '关键设备能效监控' }
+      },
+      {
+        path: 'efficiencyindex',
+        name: 'EfficiencyIndex',
+        component: () => import('@/views/WproEnergyMonitoring/EfficiencyIndex/index'),
+        meta: { title: '全厂能效指标监控' }
+      },
+      {
+        path: 'efficiencyanalysis',
+        name: 'EfficiencyAnalysis',
+        component: () => import('@/views/WproEnergyMonitoring/EfficiencyAnalysis/index'),
+        meta: { title: '全厂能耗分析' }
+      },
+      {
+        path: 'reportexport',
+        name: 'ReportExport',
+        component: () => import('@/views/WproEnergyMonitoring/ReportExport/index'),
+        meta: { title: '能耗报表导出' }
+      }
+    ]
+  },
+
+  {
+    path: '/emissionreport',
+    component: Layout,
+    redirect: '/emissionreport',
+    name: 'EmissionReport',
+    meta: { title: '碳排报告', icon: 'link' },
+    children: [
+      {
+        path: 'systemtable',
+        name: 'SystemTable',
+        component: () => import('@/views/EmissionReport/SystemTable/index'),
+        meta: { title: '系统填报表格' }
+      },
+      {
+        path: 'emissionreport',
+        name: 'EmissionReport',
+        component: () => import('@/views/EmissionReport/EmissionReport/index'),
+        meta: { title: '碳排报告' }
       }
     ]
   },
@@ -104,41 +181,7 @@ export const constantRoutes = [
         path: 'menu1',
         component: () => import('@/views/nested/menu1/index'), // Parent router-view
         name: 'Menu1',
-        meta: { title: 'Menu1' },
-        children: [
-          {
-            path: 'menu1-1',
-            component: () => import('@/views/nested/menu1/menu1-1'),
-            name: 'Menu1-1',
-            meta: { title: 'Menu1-1' }
-          },
-          {
-            path: 'menu1-2',
-            component: () => import('@/views/nested/menu1/menu1-2'),
-            name: 'Menu1-2',
-            meta: { title: 'Menu1-2' },
-            children: [
-              {
-                path: 'menu1-2-1',
-                component: () => import('@/views/nested/menu1/menu1-2/menu1-2-1'),
-                name: 'Menu1-2-1',
-                meta: { title: 'Menu1-2-1' }
-              },
-              {
-                path: 'menu1-2-2',
-                component: () => import('@/views/nested/menu1/menu1-2/menu1-2-2'),
-                name: 'Menu1-2-2',
-                meta: { title: 'Menu1-2-2' }
-              }
-            ]
-          },
-          {
-            path: 'menu1-3',
-            component: () => import('@/views/nested/menu1/menu1-3'),
-            name: 'Menu1-3',
-            meta: { title: 'Menu1-3' }
-          }
-        ]
+        meta: { title: 'Menu1' }
       },
       {
         path: 'menu2',

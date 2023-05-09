@@ -1,6 +1,6 @@
 module.exports = {
 
-  title: 'Vue Admin Template',
+  title: '上海石化碳足迹监控系统demo',
 
   /**
    * @type {boolean} true | false
