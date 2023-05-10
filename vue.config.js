@@ -5,7 +5,7 @@ const defaultSettings = require('./src/settings.js')
 function resolve(dir) {
   return path.join(__dirname, dir)
 }
-const name = defaultSettings.title || 'Vue Admin Template' // page title
+const name = defaultSettings.title || '上海石化碳足迹监控系统demo' // page title
 
 // If your port is set to 80,
 // use administrator privileges to execute the command line.

@@ -1,5 +1,6 @@
 <template>
   <div class="app-container">
+    <div>炼油部</div>
     <el-form ref="form" :model="form" label-width="120px">
       <el-form-item label="Activity name">
         <el-input v-model="form.name" />

@@ -91,6 +91,6 @@ export default {
     width: 100%;
   }
   .main-container{
-    height: 120%;
+    height: 150%;
   }
 </style>

@@ -1,5 +1,6 @@
 <template>
   <div class="app-container">
+    <div>关键产品碳标签</div>
     <el-input v-model="filterText" placeholder="Filter keyword" style="margin-bottom:30px;" />
 
     <el-tree

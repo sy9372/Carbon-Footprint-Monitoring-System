@@ -1,5 +1,6 @@
 <template>
   <div class="app-container">
+    <div>年度碳排计划</div>
     <el-table
       v-loading="listLoading"
       :data="list"
