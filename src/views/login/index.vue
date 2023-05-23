@@ -1,9 +1,10 @@
 <template>
   <div class="login-container">
+    <img class="loginBg" src="../../icons/image/login1.png">
     <el-form ref="loginForm" :model="loginForm" :rules="loginRules" class="login-form" auto-complete="on" label-position="left">
 
       <div class="title-container">
-        <h3 class="title">Login Form</h3>
+        <h3 class="title">上海石化碳足迹监控系统</h3>
       </div>
 
       <el-form-item prop="username">
@@ -49,6 +50,7 @@
       </div>
 
     </el-form>
+    <img class="login-icon" src="../../icons/image/login2.png">
   </div>
 </template>
 
@@ -141,15 +143,23 @@ $cursor: #fff;
 
 /* reset element-ui css */
 .login-container {
+  .loginBg{
+    position: absolute;
+    z-index: -1;
+    background-size: fixed;
+    width: 100%;
+    height: 100%;
+  }
   .el-input {
     display: inline-block;
     height: 47px;
     width: 85%;
+    z-index: 1;
 
     input {
       background: transparent;
       border: 0px;
-      -webkit-appearance: none;
+      // -webkit-appearance: none;
       border-radius: 0px;
       padding: 12px 5px 12px 15px;
       color: $light_gray;
@@ -178,18 +188,31 @@ $dark_gray:#889aa4;
 $light_gray:#eee;
 
 .login-container {
+  position: relative;
   min-height: 100%;
   width: 100%;
   background-color: $bg;
   overflow: hidden;
+  opacity: 0.8;
 
   .login-form {
-    position: relative;
-    width: 520px;
-    max-width: 100%;
-    padding: 160px 35px 0;
-    margin: 0 auto;
+    position: absolute;
+    width: 300px;
+    padding: 0;
+    margin: 0;
     overflow: hidden;
+    float: left;
+    right: 50px;
+    top: 180px;
+    margin: 0 50px;
+  }
+
+  .login-icon{
+    position: absolute;
+    float: left;
+    top: 200px;
+    right: 450px;
+    width: 15%;
   }
 
   .tips {

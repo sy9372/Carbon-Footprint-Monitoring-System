@@ -1,17 +1,22 @@
 <template>
-  <div class="app-container">
-    <div>关键产品碳标签</div>
-    <el-input v-model="filterText" placeholder="Filter keyword" style="margin-bottom:30px;" />
-
-    <el-tree
-      ref="tree2"
-      :data="data2"
-      :props="defaultProps"
-      :filter-node-method="filterNode"
-      class="filter-tree"
-      default-expand-all
-    />
-
+  <div class="CarbonLabel">
+    <div class="CL-option">
+      <p class="CarbonLabelTitle">{{ name }}</p>
+      <div class="Options">
+        <el-select v-model="value" placeholder="请选择">
+          <el-option
+            v-for="item in options"
+            :key="item.label"
+            :label="item.label"
+            :value="item.value"
+          />
+        </el-select>
+      </div>
+      <p class="CL-title">产品流程图</p>
+    </div>
+    <div class="CL-optionimg">
+      <img :src="value" class="CL-Img">
+    </div>
   </div>
 </template>
 
@@ -20,60 +25,69 @@ export default {
 
   data() {
     return {
-      filterText: '',
-      data2: [{
-        id: 1,
-        label: 'Level one 1',
-        children: [{
-          id: 4,
-          label: 'Level two 1-1',
-          children: [{
-            id: 9,
-            label: 'Level three 1-1-1'
-          }, {
-            id: 10,
-            label: 'Level three 1-1-2'
-          }]
-        }]
+      name: '关键产品碳标签',
+      options: [{
+        value: require('@/icons/image/criticalproduct/ethylene.png'),
+        label: '乙烯'
       }, {
-        id: 2,
-        label: 'Level one 2',
-        children: [{
-          id: 5,
-          label: 'Level two 2-1'
-        }, {
-          id: 6,
-          label: 'Level two 2-2'
-        }]
+        value: require('@/icons/image/criticalproduct/propylene.png'),
+        label: '丙烯'
       }, {
-        id: 3,
-        label: 'Level one 3',
-        children: [{
-          id: 7,
-          label: 'Level two 3-1'
-        }, {
-          id: 8,
-          label: 'Level two 3-2'
-        }]
+        value: require('@/icons/image/criticalproduct/butadiene.png'),
+        label: '丁二烯'
+      }, {
+        value: require('@/icons/image/criticalproduct/benzene.png'),
+        label: '苯'
       }],
-      defaultProps: {
-        children: 'children',
-        label: 'label'
-      }
+      imgchose: null,
+      showImg: false,
+      value: ''
     }
   },
-  watch: {
-    filterText(val) {
-      this.$refs.tree2.filter(val)
-    }
-  },
-
   methods: {
-    filterNode(value, data) {
-      if (!value) return true
-      return data.label.indexOf(value) !== -1
-    }
   }
 }
+
 </script>
 
+<style lang="scss" scoped>
+.CL-option{
+  position: relative;
+  width: 100%;
+  height: 100px;
+  margin: 50px;
+  .CarbonLabelTitle{
+    position: absolute;
+    top: 20px;
+    left: 50px;
+    float: left;
+    width: auto;
+    font-size: 20px;
+  }
+  .Options{
+    position: absolute;
+    float: left;
+    width: 200px;
+    left: 300px;
+    top: 15px;
+  }
+  .CL-title{
+  position: absolute;
+  font-size: 25px;
+  left: 500px;
+  top: 100px;
+  margin-bottom: 20px;
+}
+}
+
+.CL-optionimg{
+  position: relative;
+  height: 650px;
+  width: 90%;
+  left: 50px;
+  display: flex;
+  justify-content: space-around;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);
+}
+
+</style>

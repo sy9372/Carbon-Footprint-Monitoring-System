@@ -1,13 +1,42 @@
 <template>
   <div class="home">
-    <img class="homeImg" src="@/icons/image/home.png">
-    <p class="homeTitleC">上海石化碳足迹监控系统</p>
-    <p class="homeTitleE">Carbon Footprint Monitoring System</p>
+    <el-card class="box-card">
+      <img class="homeImg" src="@/icons/image/login2.png">
+      <img class="homeTitleC" src="@/icons/image/home/TitleC.png">
+      <img class="homeTitleE" src="@/icons/image/home/TitleE.png">
+      <el-button v-for="item in List" :key="item.name" plain :icon="item.icon" class="homeButton" @click="ChangePage(item.name)">{{ item.label }}</el-button>
+    </el-card>
   </div>
 </template>
 
 <script>
 export default {
+  data() {
+    return {
+      List: [{
+        name: 'CarbonEmission',
+        label: '全流程碳排监控',
+        icon: 'el-icon-s-management'
+      }, {
+        name: 'DataQuery',
+        label: '能耗/碳排数据查询',
+        icon: 'el-icon-s-data'
+      }, {
+        name: 'WprocessCarbonEmission',
+        label: '全流程能效监控',
+        icon: 'el-icon-s-custom'
+      }, {
+        name: 'EmissionReport',
+        label: '碳排报告',
+        icon: 'el-icon-s-marketing'
+      }]
+    }
+  },
+  methods: {
+    ChangePage(param) {
+      this.$router.push({ name: param })
+    }
+  }
 
 }
 </script>
@@ -16,32 +45,42 @@ export default {
 .home{
   position: relative;
   width: 100%;
-  height: 300px;
-  top:100px;
+  height: 94vh;
+  top:0px;
+  .box-card{
+    position: absolute;
+    width: 95%;
+    height: 95%;
+    margin: 20px 35px;
+    background-color: #fafafb;
+  }
   .homeImg{
     position: absolute;
-    width: 150px;
-    height: 150px;
+    width: 25%;
     float: left;
-    left: 100px;
+    left: 10px;
+    bottom: 10px;
   }
   .homeTitleC{
     position: absolute;
     float: left;
-    left: 300px;
-    top: 10px;
-    font-family: STXinwei,Times,serif;
-    font-weight: 500;
-    font-size: 80px;
+    width: 80%;
+    left: 140px;
+    top: 120px;
+    z-index: 2;
   }
   .homeTitleE{
     position: absolute;
     float: left;
-    left: 400px;
-    top: 120px;
-    font-family: Times New Roman;
-    font-weight: 500;
-    font-size: 45px;
+    width: 70%;
+    left: 170px;
+    top: 280px;
+    z-index: 2;
   }
 }
+// .homeButton{
+//   position: relative;
+//   width:100px;
+//   height: 100px;
+// }
 </style>

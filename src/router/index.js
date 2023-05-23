@@ -100,13 +100,7 @@ export const constantRoutes = [
         path: 'refiningdepartment',
         name: 'RefiningDepartment',
         component: () => import('@/views/DataQuery/RefiningDepartment/index'),
-        meta: { title: '炼油部' }
-      },
-      {
-        path: 'refiningdepartment',
-        name: 'RefiningDepartment',
-        component: () => import('@/views/DataQuery/RefiningDepartment/index'),
-        meta: { title: '炼油部' }
+        meta: { title: '能耗/碳排数据查询' }
       }
     ]
   },

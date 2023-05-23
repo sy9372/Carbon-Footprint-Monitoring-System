@@ -1,4 +1,5 @@
 <template>
+  <!-- head -->
   <div class="navbar">
     <hamburger :is-active="sidebar.opened" class="hamburger-container" @toggleClick="toggleSideBar" />
 
@@ -99,7 +100,7 @@ export default {
       padding: 0 8px;
       height: 100%;
       font-size: 18px;
-      color: #5a5e66;
+      color: #385da8;
       vertical-align: text-bottom;
 
       &.hover-effect {

@@ -1,6 +1,6 @@
 <template>
   <div class="dashboard-container">
-    <div class="dashboard-text">{{ title }}</div>
+    <!-- <div class="dashboard-text">{{ title }}</div> -->
     <div class="dashboard1">
       <div v-for="item in dataObj" :key="item.name1" class="dashboard1-1">
         <img class="daImg" :src="item.icon1">
@@ -19,12 +19,12 @@
 
 <script>
 import { mapGetters } from 'vuex'
-
 export default {
   name: 'Dashboard',
   data() {
     return {
       title: '全流程碳排情况',
+      importdata: [['2000-06-05', 116], ['2000-06-06', 129], ['2000-06-07', 135], ['2000-06-08', 86], ['2000-06-09', 73], ['2000-06-10', 85], ['2000-06-11', 73], ['2000-06-12', 68], ['2000-06-13', 92], ['2000-06-14', 130], ['2000-06-15', 245], ['2000-06-16', 139], ['2000-06-17', 115], ['2000-06-18', 111], ['2000-06-19', 309], ['2000-06-20', 206], ['2000-06-21', 137], ['2000-06-22', 128], ['2000-06-23', 85], ['2000-06-24', 94], ['2000-06-25', 71], ['2000-06-26', 106], ['2000-06-27', 84], ['2000-06-28', 93], ['2000-06-29', 85], ['2000-06-30', 73], ['2000-07-01', 83], ['2000-07-02', 125], ['2000-07-03', 107], ['2000-07-04', 82], ['2000-07-05', 44], ['2000-07-06', 72], ['2000-07-07', 106], ['2000-07-08', 107], ['2000-07-09', 66], ['2000-07-10', 91], ['2000-07-11', 92], ['2000-07-12', 113], ['2000-07-13', 107], ['2000-07-14', 131], ['2000-07-15', 111], ['2000-07-16', 64], ['2000-07-17', 69], ['2000-07-18', 88], ['2000-07-19', 77], ['2000-07-20', 83], ['2000-07-21', 111], ['2000-07-22', 57], ['2000-07-23', 55], ['2000-07-24', 60]],
       dataObj: [
         {
           name1: '今日总能耗（标油吨）',
@@ -70,16 +70,15 @@ export default {
     ])
   },
   mounted() {
-    this.line()
+    this.line(this.importdata)
     this.pie()
   },
   methods: {
-    line() {
-      const data = [['2000-06-05', 116], ['2000-06-06', 129], ['2000-06-07', 135], ['2000-06-08', 86], ['2000-06-09', 73], ['2000-06-10', 85], ['2000-06-11', 73], ['2000-06-12', 68], ['2000-06-13', 92], ['2000-06-14', 130], ['2000-06-15', 245], ['2000-06-16', 139], ['2000-06-17', 115], ['2000-06-18', 111], ['2000-06-19', 309], ['2000-06-20', 206], ['2000-06-21', 137], ['2000-06-22', 128], ['2000-06-23', 85], ['2000-06-24', 94], ['2000-06-25', 71], ['2000-06-26', 106], ['2000-06-27', 84], ['2000-06-28', 93], ['2000-06-29', 85], ['2000-06-30', 73], ['2000-07-01', 83], ['2000-07-02', 125], ['2000-07-03', 107], ['2000-07-04', 82], ['2000-07-05', 44], ['2000-07-06', 72], ['2000-07-07', 106], ['2000-07-08', 107], ['2000-07-09', 66], ['2000-07-10', 91], ['2000-07-11', 92], ['2000-07-12', 113], ['2000-07-13', 107], ['2000-07-14', 131], ['2000-07-15', 111], ['2000-07-16', 64], ['2000-07-17', 69], ['2000-07-18', 88], ['2000-07-19', 77], ['2000-07-20', 83], ['2000-07-21', 111], ['2000-07-22', 57], ['2000-07-23', 55], ['2000-07-24', 60]]
-      const dateList = data.map(function(item) {
+    line(data1) {
+      const dateList = data1.map(function(item) {
         return item[0]
       })
-      const valueList = data.map(function(item) {
+      const valueList = data1.map(function(item) {
         return item[1]
       })
       const myChart = this.$echarts.init(document.getElementById('dashboardTable'))
@@ -155,57 +154,51 @@ export default {
       })
     },
     pie() {
-      const data = [
-        {
-          name: 'Apples',
-          value: 70
-        },
-        {
-          name: 'Strawberries',
-          value: 68
-        },
-        {
-          name: 'Bananas',
-          value: 48
-        },
-        {
-          name: 'Oranges',
-          value: 40
-        },
-        {
-          name: 'Pears',
-          value: 32
-        },
-        {
-          name: 'Pineapples',
-          value: 27
-        },
-        {
-          name: 'Grapes',
-          value: 18
-        }
-      ]
+      const data = [{
+        name: '抽余碳四B',
+        value: '120.123'
+      },
+      {
+        name: '甲醇',
+        value: '21.5049'
+      },
+      {
+        name: '气制氢气B',
+        value: '0'
+      },
+      {
+        name: '抽甲基叔丁基醚B',
+        value: '81.0058'
+      },
+      {
+        name: '丁烯-1B',
+        value: '26.5249'
+      },
+      {
+        name: '醚后液化石油气B',
+        value: '39.5156'
+      }]
       const myChart = this.$echarts.init(document.getElementById('dashboardPie'))
       myChart.setOption({
         title: [
           {
-            text: 'Pie label alignTo',
+            text: '装置碳排占比',
             left: 'center'
           },
           {
-            subtext: 'alignTo: "none" (default)',
+            subtext: '1#MTBE',
             left: '16.67%',
             top: '50%',
             textAlign: 'center'
           },
           {
-            subtext: 'alignTo: "labelLine"',
+            subtext: '2#常减压装置',
             left: '50%',
             top: '50%',
             textAlign: 'center'
           },
           {
-            subtext: 'alignTo: "edge"',
+            subtext: '3#柴油加氢装置',
             left: '83.33%',
             top: '50%',
             textAlign: 'center'
@@ -271,30 +264,32 @@ export default {
   font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
 }
 .dashboard1 {
-  width: 100%;
-  height: 100px;
-
+  position: relative;
+  width: 90%;
+  height: 150px;
+  top: 30px;
+  margin: 0 60px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);
   .dashboard1-1 {
     position: relative;
-    top: 30px;
     width: 15%;
-    height: 100%;
+    height: 80%;
     float: left;
+    top: 15px;
     margin-left: 50px;
-    background-color: rgb(38, 133, 171);
 
     .daTitle {
       position: absolute;
       top: 20px;
       left: 20px;
-      color: aliceblue;
-      font-size: 16px;
+      color: rgb(51, 51, 52);
+      font-size: 15px;
     }
 
     .daImg {
       position: absolute;
       margin-left: 15px;
-      top: 45px;
+      top: 60px;
       width: 50px;
     }
 
@@ -306,7 +301,7 @@ export default {
       p {
         float: left;
         margin-left: 15px;
-        color: aliceblue;
+        color: rgb(51, 51, 52);
         font-size: medium;
       }
 
@@ -321,8 +316,8 @@ export default {
 #dashboardTable {
   position: relative;
   top: 100px;
-  left: -10px;
   width: 100%;
+  left: -10px;
   height: 500px;
 }
 #dashboardPie{
