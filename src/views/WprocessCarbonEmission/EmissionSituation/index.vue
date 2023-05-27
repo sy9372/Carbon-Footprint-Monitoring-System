@@ -12,6 +12,28 @@
         </div>
       </div>
     </div>
+    <el-card class="cardMap">
+      <div class="mapLY" @click="Lianyoubu">
+        <p style="text-align: center;">炼油部</p>
+        <p style="text-align: center;">data</p>
+      </div>
+      <div class="mapXT" @click="Xitingbu">
+        <p style="text-align: center;">烯烃部</p>
+        <p style="text-align: center;">data</p>
+      </div>
+      <div class="mapFTHG" @click="Fangtinghuagong">
+        <p style="text-align: center;">芳烃化工部</p>
+        <p style="text-align: center;">data</p>
+      </div>
+      <div class="mapFTLY" @click="Fangtinglianyou">
+        <p style="text-align: center;">芳烃炼油部</p>
+        <p style="text-align: center;">data</p>
+      </div>
+      <div class="mapCY" @click="Chuyunbu">
+        <p style="text-align: center;">储运部</p>
+        <p style="text-align: center;">data</p>
+      </div>
+    </el-card>
     <div id="dashboardTable" />
     <div id="dashboardPie" />
   </div>
@@ -216,7 +238,7 @@ export default {
               bleedMargin: 5
             },
             left: 0,
-            right: '66.6667%',
+            right: '60%',
             top: -180,
             bottom: 0
           },
@@ -227,11 +249,11 @@ export default {
             data: data,
             label: {
               position: 'outer',
-              alignTo: 'labelLine',
+              alignTo: 'none',
               bleedMargin: 5
             },
-            left: '33.3333%',
-            right: '33.3333%',
+            left: '30%',
+            right: '30%',
             top: -180,
             bottom: 0
           },
@@ -242,16 +264,31 @@ export default {
             data: data,
             label: {
               position: 'outer',
-              alignTo: 'edge',
-              margin: 20
+              alignTo: 'none'
+              // edgeDistance: 20
             },
-            left: '66.6667%',
+            left: '60%',
             right: 0,
             top: -180,
             bottom: 0
           }
         ]
       })
+    },
+    Lianyoubu() {
+      this.$router.push({ path: '/dataquery/lianyoubu' })
+    },
+    Xitingbu() {
+      this.$router.push({ path: '/dataquery/xitingbu' })
+    },
+    Fangtinghuagong() {
+      this.$router.push({ path: '/dataquery/fangtinghuagongbu' })
+    },
+    Fangtinglianyou() {
+      this.$router.push({ path: '/dataquery/fangtinglianyoubu' })
+    },
+    Chuyunbu() {
+      this.$router.push({ path: '/dataquery/chuyunbu' })
     }
   }
 }
@@ -268,7 +305,7 @@ export default {
   width: 90%;
   height: 150px;
   top: 30px;
-  margin: 0 60px;
+  margin: 60px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);
   .dashboard1-1 {
     position: relative;
@@ -313,19 +350,75 @@ export default {
   }
 }
 
+.cardMap{
+  position: relative;
+  width: 100%;
+  height: 800px;
+  margin: 30px;
+  background: url('~@/icons/image/map/map.png') center center no-repeat;
+  .mapLY{
+    position: absolute;
+    border-radius: 25px;
+    right: 27%;
+    top: 20%;
+    width: 130px;
+    height: 60px;
+    padding: 10px 30px;
+    background-color: cornflowerblue;
+  }
+  .mapXT{
+    position: absolute;
+    border-radius: 25px;
+    left: 28%;
+    top: 32%;
+    width: 130px;
+    height: 60px;
+    padding: 10px 30px;
+    background-color: cornflowerblue;
+  }
+  .mapFTHG{
+    position: absolute;
+    border-radius: 25px;
+    left: 41%;
+    top: 14%;
+    width: 140px;
+    height: 60px;
+    padding: 10px 30px;
+    background-color: cornflowerblue;
+  }
+  .mapFTLY{
+    position: absolute;
+    border-radius: 25px;
+    left: 51%;
+    top: 48%;
+    width: 140px;
+    height: 60px;
+    padding: 10px 30px;
+    background-color: cornflowerblue;
+  }
+  .mapCY{
+    position: absolute;
+    border-radius: 25px;
+    right: 11%;
+    bottom: 13%;
+    width: 140px;
+    height: 60px;
+    padding: 10px 30px;
+    background-color: cornflowerblue;
+  }
+}
+
 #dashboardTable {
   position: relative;
-  top: 100px;
   width: 100%;
-  left: -10px;
   height: 500px;
+  margin: 30px;
 }
 #dashboardPie{
   position: relative;
-  left: -20px;
-  top:100px;
-  width: 100%;
+  width: 90%;
   height: 400px;
+  margin: 30px;
 }
 
 </style>

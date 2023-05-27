@@ -101,6 +101,36 @@ export const constantRoutes = [
         name: 'RefiningDepartment',
         component: () => import('@/views/DataQuery/RefiningDepartment/index'),
         meta: { title: '能耗/碳排数据查询' }
+      },
+      {
+        path: 'lianyoubu',
+        name: 'Lianyoubu',
+        component: () => import('@/views/DataQuery/Lianyoubu/index'),
+        meta: { title: '炼油部' }
+      },
+      {
+        path: 'xitingbu',
+        name: 'Xitingbu',
+        component: () => import('@/views/DataQuery/Xitingbu/index'),
+        meta: { title: '烯烃部' }
+      },
+      {
+        path: 'fangtinghuagongbu',
+        name: 'Fangtinghuagongbu',
+        component: () => import('@/views/DataQuery/Fangtinghuagongbu/index'),
+        meta: { title: '芳烃化工部' }
+      },
+      {
+        path: 'fangtinglianyoubu',
+        name: 'Fangtinglianyoubu',
+        component: () => import('@/views/DataQuery/Fangtinglianyoubu/index'),
+        meta: { title: '芳烃炼油部' }
+      },
+      {
+        path: 'chuyunbu',
+        name: 'Chuyunbu',
+        component: () => import('@/views/DataQuery/Chuyunbu/index'),
+        meta: { title: '储运部' }
       }
     ]
   },
@@ -153,9 +183,9 @@ export const constantRoutes = [
         meta: { title: '系统填报表格' }
       },
       {
-        path: 'emissionreport',
-        name: 'EmissionReport',
-        component: () => import('@/views/EmissionReport/EmissionReport/index'),
+        path: 'carbonreport',
+        name: 'CarbonReport',
+        component: () => import('@/views/EmissionReport/CarbonReport/index'),
         meta: { title: '碳排报告' }
       }
     ]
