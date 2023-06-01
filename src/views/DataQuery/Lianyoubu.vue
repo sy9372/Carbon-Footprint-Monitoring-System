@@ -138,7 +138,7 @@
 </template>
 
 <script>
-import transform from '../exprotToExcel.js'
+import transform from './exprotToExcel.js'
 import * as XLSX from 'xlsx'
 export default {
   // props: {

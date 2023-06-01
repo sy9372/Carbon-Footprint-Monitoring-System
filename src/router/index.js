@@ -6,6 +6,8 @@ Vue.use(Router)
 /* Layout */
 import Layout from '@/layout'
 
+import WproEnergyMonitoringRouter from './modules/WproEnergyMonitoring.js'
+
 /**
  * Note: sub-menu only appear when route children.length >= 1
  * Detail see: https://panjiachen.github.io/vue-element-admin-site/guide/essentials/router-and-nav.html
@@ -65,25 +67,25 @@ export const constantRoutes = [
       {
         path: 'emissionsituation',
         name: 'EmissionSituation',
-        component: () => import('@/views/WprocessCarbonEmission/EmissionSituation/index'),
+        component: () => import('@/views/WprocessCarbonEmission/EmissionSituation'),
         meta: { title: '全流程碳排情况' }
       },
       {
         path: 'emissionplanning',
         name: 'EmissionPlanning',
-        component: () => import('@/views/WprocessCarbonEmission/EmissionPlanning/index'),
+        component: () => import('@/views/WprocessCarbonEmission/EmissionPlanning'),
         meta: { title: '全流程碳排计划' }
       },
       {
         path: 'carbonlabel',
         name: 'CarbonLabel',
-        component: () => import('@/views/WprocessCarbonEmission/CarbonLabel/index'),
+        component: () => import('@/views/WprocessCarbonEmission/CarbonLabel'),
         meta: { title: '关键产品碳标签' }
       },
       {
         path: 'efficiencymonitor',
         name: 'EfficiencyMonitor',
-        component: () => import('@/views/WprocessCarbonEmission/EfficiencyMonitor/index'),
+        component: () => import('@/views/WprocessCarbonEmission/EfficiencyMonitor'),
         meta: { title: '碳效率监控' }
       }
     ]
@@ -99,75 +101,42 @@ export const constantRoutes = [
       {
         path: 'refiningdepartment',
         name: 'RefiningDepartment',
-        component: () => import('@/views/DataQuery/RefiningDepartment/index'),
+        component: () => import('@/views/DataQuery/RefiningDepartment'),
         meta: { title: '能耗/碳排数据查询' }
       },
       {
         path: 'lianyoubu',
         name: 'Lianyoubu',
-        component: () => import('@/views/DataQuery/Lianyoubu/index'),
+        component: () => import('@/views/DataQuery/Lianyoubu'),
         meta: { title: '炼油部' }
       },
       {
         path: 'xitingbu',
         name: 'Xitingbu',
-        component: () => import('@/views/DataQuery/Xitingbu/index'),
+        component: () => import('@/views/DataQuery/Xitingbu'),
         meta: { title: '烯烃部' }
       },
       {
         path: 'fangtinghuagongbu',
         name: 'Fangtinghuagongbu',
-        component: () => import('@/views/DataQuery/Fangtinghuagongbu/index'),
+        component: () => import('@/views/DataQuery/Fangtinghuagongbu'),
         meta: { title: '芳烃化工部' }
       },
       {
         path: 'fangtinglianyoubu',
         name: 'Fangtinglianyoubu',
-        component: () => import('@/views/DataQuery/Fangtinglianyoubu/index'),
+        component: () => import('@/views/DataQuery/Fangtinglianyoubu'),
         meta: { title: '芳烃炼油部' }
       },
       {
         path: 'chuyunbu',
         name: 'Chuyunbu',
-        component: () => import('@/views/DataQuery/Chuyunbu/index'),
+        component: () => import('@/views/DataQuery/Chuyunbu'),
         meta: { title: '储运部' }
       }
     ]
   },
-
-  {
-    path: '/wprocesscarbonemission',
-    component: Layout,
-    redirect: '/wprocesscarbonemission/criticalequipment',
-    name: 'WprocessCarbonEmission',
-    meta: { title: '全流程能效监控', icon: 'nested' },
-    children: [
-      {
-        path: 'criticalequipment',
-        name: 'CriticalEquipment',
-        component: () => import('@/views/WproEnergyMonitoring/CriticalEquipment/index'),
-        meta: { title: '关键设备能效监控' }
-      },
-      {
-        path: 'efficiencyindex',
-        name: 'EfficiencyIndex',
-        component: () => import('@/views/WproEnergyMonitoring/EfficiencyIndex/index'),
-        meta: { title: '全厂能效指标监控' }
-      },
-      {
-        path: 'efficiencyanalysis',
-        name: 'EfficiencyAnalysis',
-        component: () => import('@/views/WproEnergyMonitoring/EfficiencyAnalysis/index'),
-        meta: { title: '全厂能耗分析' }
-      },
-      {
-        path: 'reportexport',
-        name: 'ReportExport',
-        component: () => import('@/views/WproEnergyMonitoring/ReportExport/index'),
-        meta: { title: '能耗报表导出' }
-      }
-    ]
-  },
+  WproEnergyMonitoringRouter,
 
   {
     path: '/emissionreport',
@@ -179,53 +148,17 @@ export const constantRoutes = [
       {
         path: 'systemtable',
         name: 'SystemTable',
-        component: () => import('@/views/EmissionReport/SystemTable/index'),
+        component: () => import('@/views/EmissionReport/SystemTable'),
         meta: { title: '系统填报表格' }
       },
       {
         path: 'carbonreport',
         name: 'CarbonReport',
-        component: () => import('@/views/EmissionReport/CarbonReport/index'),
+        component: () => import('@/views/EmissionReport/CarbonReport'),
         meta: { title: '碳排报告' }
       }
     ]
   },
-
-  // {
-  //   path: '/nested',
-  //   component: Layout,
-  //   redirect: '/nested/menu1',
-  //   name: 'Nested',
-  //   meta: {
-  //     title: 'Nested',
-  //     icon: 'nested'
-  //   },
-  //   children: [
-  //     {
-  //       path: 'menu1',
-  //       component: () => import('@/views/nested/menu1/index'), // Parent router-view
-  //       name: 'Menu1',
-  //       meta: { title: 'Menu1' }
-  //     },
-  //     {
-  //       path: 'menu2',
-  //       component: () => import('@/views/nested/menu2/index'),
-  //       name: 'Menu2',
-  //       meta: { title: 'menu2' }
-  //     }
-  //   ]
-  // },
-
-  // {
-  //   path: 'external-link',
-  //   component: Layout,
-  //   children: [
-  //     {
-  //       path: 'https://panjiachen.github.io/vue-element-admin-site/#/',
-  //       meta: { title: 'External Link', icon: 'link' }
-  //     }
-  //   ]
-  // },
 
   // 404 page must be placed at the end !!!
   { path: '*', redirect: '/404', hidden: true }
