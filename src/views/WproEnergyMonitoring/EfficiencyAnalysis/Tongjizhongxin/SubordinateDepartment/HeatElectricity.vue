@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <!-- 丙烯压缩透平机 -->
-  </div>
+  <div>这里是热电部</div>
 </template>
 
 <script>

@@ -1,6 +1,6 @@
 <template>
   <div class="criticalEquipment">
-    <p class="criticalTitle">关键设备能效监控</p>
+    <!-- 锅炉1 -->
     <div class="equipmentOptions">
       <p class="equipmentTitle">设备名称</p>
       <div class="options">
@@ -74,12 +74,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.criticalTitle {
-  position: relative;
-  font-size: larger;
-  width: 50%;
-  padding: auto;
-}
 .equipmentOptions{
   position: absolute;
   width: 100%;

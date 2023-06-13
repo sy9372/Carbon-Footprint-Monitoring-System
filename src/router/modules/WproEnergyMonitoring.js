@@ -27,7 +27,7 @@ const WproEnergyMonitoringRouter = {
               path: 'guolu',
               name: 'Guolu',
               component: () => import('@/views/WproEnergyMonitoring/CriticalEquipment/Jiarelu/Guolu'),
-              meta: { title: '锅炉' }
+              meta: { title: '加热炉' }
             },
             {
               path: 'guolu1',
@@ -130,6 +130,10 @@ const WproEnergyMonitoringRouter = {
               name: 'FuelGas',
               component: () => import('@/views/WproEnergyMonitoring/EfficiencyAnalysis/Tongjizhongxin/FuelGas'),
               meta: { title: '燃料气' }
+            },
+            {
+              path: 'lowchuyun',
+              component: () => import('@/views/WproEnergyMonitoring/EfficiencyAnalysis/Tongjizhongxin/SubordinateDepartment/ChuYunBu')
             }
           ]
         }

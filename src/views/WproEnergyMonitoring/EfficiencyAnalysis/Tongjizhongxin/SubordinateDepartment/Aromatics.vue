@@ -1,7 +1,11 @@
 <template>
-  <div>
-    <!-- 3.5Mpa蒸汽累积量 -->
-    <div class="dataSelect">
+  <div class="aromaticsDepartmentBox">
+    <!-- 这里是芳烃部 -->
+    <div class="aromaticsBox">
+      <img class="aromaticsImage1" src="@/icons/image/lowpressure/Fangting1.png">
+      <img class="aromaticsImage2" src="@/icons/image/lowpressure/Fangting2.png">
+    </div>
+    <div class="aromaticsDataSelect">
       <div class="block">
         <p>请选择日期范围 :</p>
         <el-date-picker
@@ -15,13 +19,13 @@
           :picker-options="pickerOptions"
         />
       </div>
-      <div class="dataSummary">
+      <div class="aromaticsDataSummary">
         <p>装置蒸汽累计总量</p>
         <div class="input">收蒸汽网管: {{ data1 }}</div>
         <div class="output">发蒸汽网管: {{ data2 }}</div>
       </div>
     </div>
-    <el-card class="TableCard">
+    <el-card class="aromaticsTableCard">
       <el-table
         :data="tableData"
         style="width: 100%"
@@ -58,10 +62,9 @@
       width="90%"
       @open="open()"
     >
-      <div id="lineTable" />
+      <div id="aromaticsLineTable" />
     </el-dialog>
   </div>
-
 </template>
 
 <script>
@@ -69,137 +72,120 @@ export default {
   data() {
     return {
       tableData: [{
-        device: '1#炼油',
-        number: 'FIQ2750',
-        tend: '3#柴油加氢收管网',
+        device: '芳烃食堂部',
+        number: 'FIQ5412',
+        tend: '',
         unit: '吨',
-        cumulant: '86448.33'
+        cumulant: '152496.44'
       }, {
-        device: '1#炼油',
-        number: 'FIQ2750A',
-        tend: '3#柴油加氢收管网 A',
-        unit: '吨',
-        cumulant: '84816.91'
+        device: '芳烃部1#MTBE',
+        number: 'FIQ9764',
+        tend: '',
+        unit: '千克',
+        cumulant: '59006.97'
       }, {
-        device: '2#炼油',
-        number: 'FIQ1014',
-        tend: '收蒸汽管网（烯）',
+        device: '芳烃部加氢汽油抽提',
+        number: 'FIQ2405',
+        tend: '',
+        unit: '千克',
+        cumulant: '70513.71'
+      }, {
+        device: '芳烃部4#汽油加氢',
+        number: 'FIQ7102',
+        tend: '',
         unit: '吨',
         cumulant: 'N/A'
       }, {
-        device: '2#炼油',
-        number: 'FIQ1011',
-        tend: '收蒸汽管网（煤）',
+        device: '芳烃部2#MTBE',
+        number: 'FIQ7101',
+        tend: '',
         unit: '吨',
         cumulant: 'N/A'
       }, {
-        device: '3#炼油',
-        number: 'FIQ6305',
-        tend: '中压加氢收管网',
-        unit: '吨',
-        cumulant: '63495.41'
-      }, {
-        device: '3#炼油',
-        number: 'FIQ4240',
-        tend: '2#柴油加氢收管网',
-        unit: '吨',
-        cumulant: '640.73.94'
-      }, {
-        device: '3#炼油',
-        number: 'FIQ5404',
-        tend: '2#制氢产蒸汽',
-        unit: '吨',
-        cumulant: '236570.72'
-      }, {
-        device: '3#炼油',
-        number: 'FIQ5106',
-        tend: '2#制氢收管网',
-        unit: '吨',
-        cumulant: '31562.87'
-      }, {
-        device: '4#炼油',
-        number: 'FIQ3307',
-        tend: '2#硫磺送管网',
-        unit: '吨',
-        cumulant: '94703.50'
-      }, {
-        device: '4#炼油',
-        number: 'FIQ1181',
-        tend: '1#焦化收管网',
+        device: '芳烃部1#重整',
+        number: 'FIQ2140',
+        tend: '',
         unit: '吨',
         cumulant: 'N/A'
       }, {
-        device: '4#炼油',
-        number: 'FIQ1201',
-        tend: '1#脱硫收管网',
+        device: '芳烃部高压加氢',
+        number: 'FIQ4411',
+        tend: '',
         unit: '吨',
-        cumulant: '771449.00'
+        cumulant: '160099.27'
       }, {
-        device: '4#炼油',
-        number: 'FIQ8137',
-        tend: '3#硫磺送管网',
+        device: '芳烃部处理液化气',
+        number: 'FIQ6402',
+        tend: '',
         unit: '吨',
-        cumulant: '2607141.75'
+        cumulant: '62493.25'
       }, {
-        device: '4#炼油',
-        number: 'FIQ9405',
-        tend: '2#焦化收管网',
+        device: '芳烃部1#抽提',
+        number: 'FIQ7414',
+        tend: '',
         unit: '吨',
-        cumulant: '2373789.00'
+        cumulant: '8.60'
       }, {
-        device: '5#炼油',
-        number: 'FIQ30702',
-        tend: '2#催化3.5Mpa蒸汽送管网',
+        device: '芳烃部1#二甲苯',
+        number: 'FIQ7101',
+        tend: '',
         unit: '吨',
-        cumulant: '15059776.00'
+        cumulant: 'N/A'
       }, {
-        device: '5#炼油',
-        number: 'FIQ30703',
-        tend: '2#催化4.2Mpa蒸汽送管网',
+        device: '芳烃部2#重整',
+        number: 'FIQ2140',
+        tend: '',
         unit: '吨',
-        cumulant: '4311257.00'
+        cumulant: 'N/A'
       }, {
-        device: '6#炼油',
-        number: 'FIQ40701',
-        tend: '渣油加氢收管网',
+        device: '芳烃部4#PSA',
+        number: 'FIQ4411',
+        tend: '',
         unit: '吨',
-        cumulant: '10857111.00'
+        cumulant: '160099.27'
       }, {
-        device: '6#炼油',
-        number: 'FIQ13104',
-        tend: '4#硫磺送管网',
+        device: '芳烃部2#歧化',
+        number: 'FIQ6402',
+        tend: '',
         unit: '吨',
-        cumulant: '4048494.00'
+        cumulant: '62493.25'
+      }, {
+        device: '芳烃部2#二甲苯',
+        number: 'FIQ7414',
+        tend: '',
+        unit: '吨',
+        cumulant: '8.60'
+      }, {
+        device: '芳烃部石脑油预加氢',
+        number: 'FIQ7101',
+        tend: '',
+        unit: '吨',
+        cumulant: 'N/A'
+      }, {
+        device: '芳烃部3#重整',
+        number: 'FIQ2140',
+        tend: '',
+        unit: '吨',
+        cumulant: 'N/A'
+      }, {
+        device: '芳烃部中间罐区',
+        number: 'FIQ4411',
+        tend: '',
+        unit: '吨',
+        cumulant: '160099.27'
+      }, {
+        device: '芳烃部食堂',
+        number: 'FIQ6402',
+        tend: '',
+        unit: '吨',
+        cumulant: '62493.25'
+      }, {
+        device: '芳烃部浴室',
+        number: 'FIQ7414',
+        tend: '',
+        unit: '吨',
+        cumulant: '8.60'
       }],
-      pickerOptions: {
-        shortcuts: [{
-          text: '最近一周',
-          onClick(picker) {
-            const end = new Date()
-            const start = new Date()
-            start.setTime(start.getTime() - 3600 * 1000 * 24 * 7)
-            picker.$emit('pick', [start, end])
-          }
-        }, {
-          text: '最近一个月',
-          onClick(picker) {
-            const end = new Date()
-            const start = new Date()
-            start.setTime(start.getTime() - 3600 * 1000 * 24 * 30)
-            picker.$emit('pick', [start, end])
-          }
-        }, {
-          text: '最近三个月',
-          onClick(picker) {
-            const end = new Date()
-            const start = new Date()
-            start.setTime(start.getTime() - 3600 * 1000 * 24 * 90)
-            picker.$emit('pick', [start, end])
-          }
-        }]
-      },
-      value1: '',
-      value2: '',
       data1: '',
       data2: '',
       dialogVisible: false
@@ -216,7 +202,7 @@ export default {
       }, 1000)
     },
     line() {
-      const myChart = this.$echarts.init(document.getElementById('lineTable'))
+      const myChart = this.$echarts.init(document.getElementById('aromaticsLineTable'))
       myChart.setOption({
         title: {
           left: 'center',
@@ -249,7 +235,24 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.dataSelect{
+.aromaticsBox{
+  position: relative;
+  width: 95%;
+  height: 1600px;
+  margin: 30px;
+  .aromaticsImage1{
+    position: absolute;
+    width: 100%;
+    text-align: center;
+  }
+  .aromaticsImage2{
+    position: absolute;
+    top: 800px;
+    width: 100%;
+    text-align: center;
+  }
+}
+.aromaticsDataSelect{
   position: relative;
   width: 95;
   margin: 30px;
@@ -264,7 +267,7 @@ export default {
       margin: 20px;
     }
   }
-  .dataSummary{
+  .aromaticsDataSummary{
     position: absolute;
     width: 40%;
     height: 100px;
@@ -287,17 +290,17 @@ export default {
     }
   }
 }
-.TableCard{
-    position: relative;
-    margin: 30px;
-    width: 95%;
-}
-#lineTable{
+.aromaticsTableCard{
   position: relative;
-  display: center;
-  left: 6%;
-  width: 90%;
-  height: 300px;
+  top: 50px;
+  margin: 30px;
+  width: 95%;
 }
-  </style>
-
+#aromaticsLineTable{
+    position: relative;
+    display: center;
+    left: 6%;
+    width: 90%;
+    height: 300px;
+}
+</style>

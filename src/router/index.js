@@ -7,6 +7,7 @@ Vue.use(Router)
 import Layout from '@/layout'
 
 import WproEnergyMonitoringRouter from './modules/WproEnergyMonitoring.js'
+import LabelPageRouter from './modules/LabelPage.js'
 
 /**
  * Note: sub-menu only appear when route children.length >= 1
@@ -159,6 +160,7 @@ export const constantRoutes = [
       }
     ]
   },
+  LabelPageRouter,
 
   // 404 page must be placed at the end !!!
   { path: '*', redirect: '/404', hidden: true }

@@ -1,31 +1,78 @@
 <template>
-  <div class="criticalEquipment">
-    <p class="criticalTitle">关键设备能效监控</p>
-    <div class="equipmentOptions">
-      <p class="equipmentTitle">设备名称</p>
-      <div class="options">
-        <el-select v-model="value" placeholder="请选择">
-          <el-option
-            v-for="item in options"
-            :key="item.value"
-            :label="item.label"
-            :value="item.value"
+  <div class="jiarelu">
+    <!-- 加热炉 -->
+    <div class="jiareluWarning">
+      <p class="jiareluTitle1">加热炉指标预警</p>
+      <div class="jiareluTable1">
+        <el-table
+          :data="tableData1"
+          style="width: 100%"
+          height="250"
+        >
+          <el-table-column
+            fixed
+            prop="target"
+            label="关键能效指标"
+            width="150"
           />
-        </el-select>
+          <el-table-column
+            prop="top"
+            label="预警上界"
+            width="150"
+          />
+          <el-table-column
+            prop="amount1"
+            label="加热炉数量"
+            width="150"
+          />
+          <el-table-column
+            prop="bottom"
+            label="预警下界"
+            width="150"
+          />
+          <el-table-column
+            prop="amount2"
+            label="加热炉数量"
+            width="150"
+          />
+        </el-table>
       </div>
     </div>
-    <div class="equipmentData">
-      <div v-for="item in dataObj" :key="item.name" class="equipmentData1">
-        <p class="daTitle">{{ item.name }}</p>
-        <div class="daData">
-          <p>{{ item.num }}</p>
-        </div>
-      </div>
-    </div>
-    <div class="equipmentDcs">
-      <p class="dcsTitle">设备DCS图</p>
-      <div class="dcs-Optionimg">
-        <img :src="value" class="dcs-Img">
+    <div class="jiareluMonitoring">
+      <p class="jiareluTitle2">加热炉能效监控</p>
+      <div class="jiareluTable2">
+        <el-table
+          :data="tableData2"
+          style="width: 100%"
+          height="250"
+        >
+          <el-table-column
+            fixed
+            prop="device"
+            label="装置"
+            width="150"
+          />
+          <el-table-column
+            prop="heater"
+            label="加热炉"
+            width="150"
+          />
+          <el-table-column
+            prop="efficiency"
+            label="能效"
+            width="150"
+          />
+          <el-table-column
+            prop="oxygen"
+            label="氧含量"
+            width="150"
+          />
+          <el-table-column
+            prop="exhaustgas"
+            label="排烟温度"
+            width="150"
+          />
+        </el-table>
       </div>
     </div>
   </div>
@@ -35,127 +82,101 @@
 export default {
   data() {
     return {
-      options: [{
-        value: require('@/icons/image/dcs/flowsheet24.jpg'),
-        label: '锅炉'
+      tableData1: [{
+        target: '氧含量（%）',
+        top: '大于3%',
+        amount1: '2',
+        bottom: '小于3%',
+        amount2: '3'
       }, {
-        value: require('@/icons/image/dcs/flowsheet6.jpg'),
-        label: '裂解气压缩机'
+        target: '排烟温度（℃）',
+        top: '大于130℃',
+        amount1: '5',
+        bottom: '小于110℃',
+        amount2: '4'
       }, {
-        value: require('@/icons/image/dcs/flowsheet22.jpg'),
-        label: '丙烯压缩机'
+        target: '指标1',
+        top: 'XX',
+        amount1: 'XX',
+        bottom: 'XX',
+        amount2: 'XX'
       }, {
-        value: require('@/icons/image/dcs/flowsheet33.jpg'),
-        label: '乙烯压缩机'
+        target: '指标2',
+        top: 'XX',
+        amount1: 'XX',
+        bottom: 'XX',
+        amount2: 'XX'
       }, {
-        value: require('@/icons/image/dcs/flowsheet41.jpg'),
-        label: '精馏塔'
+        target: '指标3',
+        top: 'XX',
+        amount1: 'XX',
+        bottom: 'XX',
+        amount2: 'XX'
       }],
-      imgchose: null,
-      showImg: false,
-      value: '',
-      dataObj: [
-        {
-          name: '温度',
-          num: '100℃'
-        },
-        {
-          name: '压力',
-          num: '1000Pa'
-        },
-        {
-          name: '氧含量',
-          num: '80%'
-        }
-      ]
+      tableData2: [{
+        device: '1',
+        heater: 'F-101',
+        efficiency: '正常',
+        oxygen: '50%',
+        exhaustgas: '120℃'
+      }, {
+        device: '2',
+        heater: 'F-103',
+        efficiency: '正常',
+        oxygen: '60%',
+        exhaustgas: '115℃'
+      }, {
+        device: '3',
+        heater: 'XX',
+        efficiency: 'XX',
+        oxygen: 'XX',
+        exhaustgas: 'XX'
+      }, {
+        device: '4',
+        heater: 'XX',
+        efficiency: 'XX',
+        oxygen: 'XX',
+        exhaustgas: 'XX'
+      }, {
+        device: '5',
+        heater: 'XX',
+        efficiency: 'XX',
+        oxygen: 'XX',
+        exhaustgas: 'XX'
+      }]
     }
   }
 }
 </script>
 
-  <style lang="scss" scoped>
-  .criticalTitle {
-    position: relative;
-    font-size: larger;
-    width: 50%;
-    padding: auto;
-  }
-  .equipmentOptions{
-    position: absolute;
-    width: 100%;
-    height: 100px;
-    margin: 20px;
-    .equipmentTitle{
-      position: absolute;
-      top: 10px;
-      left: 20px;
-      float: left;
-      width: auto;
-      font-size: 20px;
-    }
-    .options{
-      position: absolute;
-      float: left;
-      width: 200px;
-      left: 200px;
-      top: 5px;
-    }
-  }
-  .equipmentData{
-    position: relative;
-    width: 95%;
-    height: 150px;
-    top: 100px;
-    margin: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);
-    .equipmentData1{
-    position: relative;
-    width: 15%;
-    height: 80%;
-    float: left;
-    top: 15px;
-    margin-left: 50px;
-    }
-    .daTitle {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      color: rgb(51, 51, 52);
-      font-size: 15px;
-    }
-    .daData {
-      position: absolute;
-      top: 70px;
-
-      p {
-        float: left;
-        margin-left: 18px;
-        color: rgb(209, 18, 18);
-        font-size: medium;
-      }
-    }
-  }
-  .equipmentDcs{
-    position: relative;
-    width: 100%;
-    height: 1000px;
-    top:100px;
-    margin: 20px;
-    .dcsTitle{
-      position: relative;
-      font-size: 25px;
-      left: 500px;
-      top: 30px;
-      margin: 10px;
-    }
-    .dcs-Optionimg{
-      position: relative;
-      height: 700px;
-      width: 95%;
-      top: 40px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);
-    }
-  }
-
-  </style>
+<style lang="scss" scoped>
+.jiareluTitle1{
+  position: relative;
+  margin:5px;
+  left: 20%;
+  top:20px;
+}
+.jiareluTable1{
+  position: relative;
+  padding: auto;
+  margin: 20px;
+  height: 300px;
+  width:95%;
+  top:20px;
+}
+.jiareluTitle2{
+  position: relative;
+  margin:5px;
+  left: 20%;
+  top:20px;
+}
+.jiareluTable2{
+  position: relative;
+  padding: auto;
+  margin: 20px;
+  height: 300px;
+  width:95%;
+  top:20px;
+}
+</style>
 
