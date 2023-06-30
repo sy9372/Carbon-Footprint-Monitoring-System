@@ -10,6 +10,13 @@
       </div>
     </div>
     <div id="medpressureLine" />
+    <el-card class="blockLine">
+      <el-carousel trigger="click" height="400px">
+        <el-carousel-item v-for="item in runLabelData" :key="item.value">
+          <div :id="item.value">{{ item.name }}</div>
+        </el-carousel-item>
+      </el-carousel>
+    </el-card>
     <el-card class="medpressureTable">
       <el-table
         :data="tableData"
@@ -118,11 +125,52 @@ export default {
           pressure: ''
         }
       ],
+      runLabelData: [
+        {
+          value: 'Chuyunbu',
+          name: '储运部'
+        },
+        {
+          value: 'Gonggongshiyebu',
+          name: '公共事业部'
+        },
+        {
+          value: 'Dianqiyibiaozhongxin',
+          name: '电气仪表中心'
+        },
+        {
+          value: 'Fangting',
+          name: '芳烃'
+        },
+        {
+          value: 'Huanbaoshuiwu',
+          name: '环保水务'
+        },
+        {
+          value: 'Jinglunbu',
+          name: '腈纶部'
+        },
+        {
+          value: 'LianyouXiting',
+          name: '炼油、烯烃'
+        },
+        {
+          value: 'Redianbu',
+          name: '热电部'
+        },
+        {
+          value: 'Dilunbu',
+          name: '涤纶部'
+        }
+      ],
       dialogVisible: false
     }
   },
   mounted() {
     this.line()
+    this.line1()
+    this.line2()
+    this.line3()
   },
   methods: {
     line() {
@@ -241,6 +289,204 @@ export default {
     },
     dataHistory() {
       this.dialogVisible = true
+    },
+    line1() {
+      const myChart = this.$echarts.init(document.getElementById('Chuyunbu'))
+      myChart.setOption({
+        title: {
+          text: '储运部'
+        },
+        tooltip: {
+          trigger: 'axis'
+        },
+        legend: {
+          data: ['装置1', '装置2', '装置3', '装置4', '装置5']
+        },
+        grid: {
+          top: '20%',
+          left: '5%',
+          right: '5%',
+          bottom: '5%',
+          containLabel: true
+        },
+        toolbox: {
+          feature: {
+            saveAsImage: {}
+          }
+        },
+        xAxis: {
+          type: 'category',
+          boundaryGap: false,
+          data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+        },
+        yAxis: {
+          type: 'value'
+        },
+        series: [
+          {
+            name: '装置1',
+            type: 'line',
+            stack: 'Total',
+            data: [120, 132, 101, 134, 90, 230, 210]
+          },
+          {
+            name: '装置2',
+            type: 'line',
+            stack: 'Total',
+            data: [220, 182, 191, 234, 290, 330, 310]
+          },
+          {
+            name: '装置3',
+            type: 'line',
+            stack: 'Total',
+            data: [150, 232, 201, 154, 190, 330, 410]
+          },
+          {
+            name: '装置4',
+            type: 'line',
+            stack: 'Total',
+            data: [320, 332, 301, 334, 390, 330, 320]
+          },
+          {
+            name: '装置5',
+            type: 'line',
+            stack: 'Total',
+            data: [820, 932, 901, 934, 1290, 1330, 1320]
+          }
+        ]
+      })
+    },
+    line2() {
+      const myChart = this.$echarts.init(document.getElementById('Gonggongshiyebu'))
+      myChart.setOption({
+        title: {
+          text: '公共事业部'
+        },
+        tooltip: {
+          trigger: 'axis'
+        },
+        legend: {
+          data: ['装置1', '装置2', '装置3', '装置4', '装置5']
+        },
+        grid: {
+          top: '20%',
+          left: '5%',
+          right: '5%',
+          bottom: '5%',
+          containLabel: true
+        },
+        toolbox: {
+          feature: {
+            saveAsImage: {}
+          }
+        },
+        xAxis: {
+          type: 'category',
+          boundaryGap: false,
+          data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+        },
+        yAxis: {
+          type: 'value'
+        },
+        series: [
+          {
+            name: '装置1',
+            type: 'line',
+            stack: 'Total',
+            data: [120, 132, 101, 134, 90, 230, 210]
+          },
+          {
+            name: '装置2',
+            type: 'line',
+            stack: 'Total',
+            data: [220, 182, 191, 234, 290, 330, 310]
+          },
+          {
+            name: '装置3',
+            type: 'line',
+            stack: 'Total',
+            data: [150, 232, 201, 154, 190, 330, 410]
+          },
+          {
+            name: '装置4',
+            type: 'line',
+            stack: 'Total',
+            data: [320, 332, 301, 334, 390, 330, 320]
+          },
+          {
+            name: '装置5',
+            type: 'line',
+            stack: 'Total',
+            data: [820, 932, 901, 934, 1290, 1330, 1320]
+          }
+        ]
+      })
+    },
+    line3() {
+      const myChart = this.$echarts.init(document.getElementById('Dianqiyibiaozhongxin'))
+      myChart.setOption({
+        title: {
+          text: '电气仪表中心'
+        },
+        tooltip: {
+          trigger: 'axis'
+        },
+        legend: {
+          data: ['装置1', '装置2', '装置3', '装置4', '装置5']
+        },
+        grid: {
+          top: '20%',
+          left: '5%',
+          right: '5%',
+          bottom: '5%',
+          containLabel: true
+        },
+        toolbox: {
+          feature: {
+            saveAsImage: {}
+          }
+        },
+        xAxis: {
+          type: 'category',
+          boundaryGap: false,
+          data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+        },
+        yAxis: {
+          type: 'value'
+        },
+        series: [
+          {
+            name: '装置1',
+            type: 'line',
+            stack: 'Total',
+            data: [120, 132, 101, 134, 90, 230, 210]
+          },
+          {
+            name: '装置2',
+            type: 'line',
+            stack: 'Total',
+            data: [220, 182, 191, 234, 290, 330, 310]
+          },
+          {
+            name: '装置3',
+            type: 'line',
+            stack: 'Total',
+            data: [150, 232, 201, 154, 190, 330, 410]
+          },
+          {
+            name: '装置4',
+            type: 'line',
+            stack: 'Total',
+            data: [320, 332, 301, 334, 390, 330, 320]
+          },
+          {
+            name: '装置5',
+            type: 'line',
+            stack: 'Total',
+            data: [820, 932, 901, 934, 1290, 1330, 1320]
+          }
+        ]
+      })
     }
   }
 }
@@ -287,6 +533,28 @@ export default {
   top: 30px;
   width: 95%;
   height: 400px;
+}
+.blockLine{
+  position: relative;
+  width: 95%;
+  height: 450px;
+  top: 30px;
+  margin: 20px;
+  #Chuyunbu{
+    position: absolute;
+    width: 1200px;
+    height: 400px;
+  }
+  #Gonggongshiyebu{
+    position: absolute;
+    width: 1200px;
+    height: 400px;
+  }
+  #Dianqiyibiaozhongxin{
+    position: absolute;
+    width: 1200px;
+    height: 400px;
+  }
 }
 .medpressureTable{
   position: relative;

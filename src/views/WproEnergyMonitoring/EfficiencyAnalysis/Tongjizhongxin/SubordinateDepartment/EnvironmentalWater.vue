@@ -103,6 +103,8 @@ export default {
       }],
       data1: '',
       data2: '',
+      value1: '',
+      value2: '',
       dialogVisible: false
     }
   },

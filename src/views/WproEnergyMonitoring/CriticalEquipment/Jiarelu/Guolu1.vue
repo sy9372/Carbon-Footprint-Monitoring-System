@@ -37,19 +37,19 @@ export default {
     return {
       options: [{
         value: require('@/icons/image/dcs/flowsheet24.jpg'),
-        label: '锅炉'
+        label: '锅炉1'
       }, {
         value: require('@/icons/image/dcs/flowsheet6.jpg'),
-        label: '裂解气压缩机'
+        label: '锅炉2'
       }, {
         value: require('@/icons/image/dcs/flowsheet22.jpg'),
-        label: '丙烯压缩机'
+        label: '锅炉3'
       }, {
         value: require('@/icons/image/dcs/flowsheet33.jpg'),
-        label: '乙烯压缩机'
+        label: '锅炉4'
       }, {
         value: require('@/icons/image/dcs/flowsheet41.jpg'),
-        label: '精馏塔'
+        label: '锅炉5'
       }],
       imgchose: null,
       showImg: false,

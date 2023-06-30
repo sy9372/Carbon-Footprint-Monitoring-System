@@ -1,0 +1,205 @@
+<template>
+  <div>
+    <!-- XX精馏塔 -->
+    <div class="dcsImage">
+      <p>图片待补充</p>
+      <div v-for="item in imgData" :key="item.value" class="imgContent" @click="photoVersion(item.name,item.url)">
+        <img :src="item.url" alt="" width="100%">
+      </div>
+      <el-dialog
+        :title="name"
+        :visible.sync="dialogVisible"
+        width="80%"
+      >
+        <img :src="url" alt="" width="100%">
+      </el-dialog>
+    </div>
+    <div class="yixiData">
+      <div v-for="item in dataObj" :key="item.name" class="yixiData1">
+        <p class="daTitle">{{ item.name }}</p>
+        <div class="daData">
+          <p>{{ item.num }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="yixiTable">
+      <p class="yixiTitle">关键指标数据表</p>
+      <el-table
+        :data="tableData"
+        style="width: 100%"
+        height="250"
+      >
+        <el-table-column
+          fixed
+          prop="number"
+          label="装置位号"
+          width="150"
+        />
+        <el-table-column
+          prop="temperature"
+          label="温度"
+          width="150"
+        />
+        <el-table-column
+          prop="pressure"
+          label="压力"
+          width="150"
+        />
+        <el-table-column
+          prop="oxygen"
+          label="氧含量"
+          width="150"
+        />
+        <el-table-column
+          prop="refluxratio"
+          label="回流比"
+          width="150"
+        />
+        <el-table-column
+          prop="sensitivityplate"
+          label="灵敏板温度"
+          width="150"
+        />
+      </el-table>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      imgData: [
+
+      ],
+      dataObj: [
+        {
+          name: '温度',
+          num: '100℃'
+        },
+        {
+          name: '压力',
+          num: '1000Pa'
+        },
+        {
+          name: '氧含量',
+          num: '80%'
+        }
+      ],
+      tableData: [{
+        number: 'GB2201',
+        temperature: '100℃',
+        pressure: '100kPa',
+        oxygen: '80%',
+        refluxratio: '0.5',
+        sensitivityplate: '60℃'
+      }, {
+        number: 'GT2201',
+        temperature: '120℃',
+        pressure: '150kPa',
+        oxygen: '60%',
+        refluxratio: '0.8',
+        sensitivityplate: '60℃'
+      }, {
+        number: 'XX',
+        temperature: 'XX',
+        pressure: 'XX',
+        oxygen: 'XX',
+        refluxratio: 'XX',
+        sensitivityplate: 'XX'
+      }, {
+        number: 'XX',
+        temperature: 'XX',
+        pressure: 'XX',
+        oxygen: 'XX',
+        refluxratio: 'XX',
+        sensitivityplate: 'XX'
+      }, {
+        number: 'XX',
+        temperature: 'XX',
+        pressure: 'XX',
+        oxygen: 'XX',
+        refluxratio: 'XX',
+        sensitivityplate: 'XX'
+      }],
+      dialogVisible: false,
+      name: '',
+      url: ''
+    }
+  },
+  methods: {
+    photoVersion(param1, param2) {
+      this.dialogVisible = true
+      this.name = param1
+      this.url = param2
+    }
+  }
+}
+</script>
+
+<style lang="scss" scoped>
+
+.dcsImage{
+    position: relative;
+    height: 480px;
+    width: 100%;
+    margin: 20px;
+    .imgContent{
+    position: relative;
+    float: left;
+    width: 400px;
+    height: 180px;
+    left: 40px;
+    margin: 30px
+    }
+}
+.yixiData{
+  position: relative;
+  width: 95%;
+  height: 150px;
+  top: 100px;
+  left: 20px;
+  margin: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);
+    .yixiData1{
+    position: relative;
+    float: left;
+    width: 15%;
+    height: 80%;
+    top: 15px;
+    margin-left: 100px;
+    }
+  .daTitle {
+    position: absolute;
+    top: 25px;
+    left: 20px;
+    color: rgb(51, 51, 52);
+    font-size: 15px;
+  }
+  .daData {
+    position: absolute;
+    top: 70px;
+
+    p {
+      float: left;
+      margin-left: 18px;
+      color: rgb(209, 18, 18);
+      font-size: medium;
+    }
+  }
+}
+.yixiTable{
+  position: relative;
+  padding: auto;
+  margin: 20px;
+  height: 500px;
+  width:95%;
+  top:180px;
+  left: 20px;
+  .yixiTitle{
+  position: relative;
+  margin:5px;
+  left: 30%;
+  }
+}
+</style>
