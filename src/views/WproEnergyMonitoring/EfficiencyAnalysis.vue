@@ -1,3 +1,14 @@
+
 <template>
-  <div>全厂能耗分析</div>
+  <div>
+    全场能耗分析没有挂载到路由上
+  </div>
 </template>
+<script>
+export default {
+  
+}
+</script>
+<style lang="">
+  
+</style>

@@ -10,13 +10,26 @@
       </div>
     </div>
     <div id="medpressureLine" />
-    <el-card class="blockLine">
+    <div class="medTab"> 
+      <el-tabs v-model="activeName" type="card" @tab-click="handleClick">
+      <el-tab-pane v-for="item in runLabelData" :key="item.value" :label="item.name">{{item.name}}</el-tab-pane>
+      </el-tabs>
+    </div>
+    <el-card class="medBlockLine"> 
+      <el-carousel :interval="4000" type="card" height="350px">
+        <el-carousel-item v-for="item in runLabelData" :key="item.value">
+          <h3 class="medium">{{ item.name }}</h3>
+          <div :id="item.value" style="width: 100%; height: 300px; background-color: aliceblue;" />
+        </el-carousel-item>
+      </el-carousel>
+    </el-card>
+    <!-- <el-card class="blockLine">
       <el-carousel trigger="click" height="400px">
         <el-carousel-item v-for="item in runLabelData" :key="item.value">
           <div :id="item.value">{{ item.name }}</div>
         </el-carousel-item>
       </el-carousel>
-    </el-card>
+    </el-card> -->
     <el-card class="medpressureTable">
       <el-table
         :data="tableData"
@@ -163,14 +176,17 @@ export default {
           name: '涤纶部'
         }
       ],
-      dialogVisible: false
+      dialogVisible: false,
+      activeName: 'Chuyunbu'
     }
   },
   mounted() {
+    setTimeout(() => {
+      this.line1()
+      this.line2()
+      this.line3()
+    },800)
     this.line()
-    this.line1()
-    this.line2()
-    this.line3()
   },
   methods: {
     line() {
@@ -290,12 +306,12 @@ export default {
     dataHistory() {
       this.dialogVisible = true
     },
+    handleClick(tab, event) {
+        console.log(tab, event);
+      },
     line1() {
       const myChart = this.$echarts.init(document.getElementById('Chuyunbu'))
       myChart.setOption({
-        title: {
-          text: '储运部'
-        },
         tooltip: {
           trigger: 'axis'
         },
@@ -359,9 +375,6 @@ export default {
     line2() {
       const myChart = this.$echarts.init(document.getElementById('Gonggongshiyebu'))
       myChart.setOption({
-        title: {
-          text: '公共事业部'
-        },
         tooltip: {
           trigger: 'axis'
         },
@@ -425,9 +438,6 @@ export default {
     line3() {
       const myChart = this.$echarts.init(document.getElementById('Dianqiyibiaozhongxin'))
       myChart.setOption({
-        title: {
-          text: '电气仪表中心'
-        },
         tooltip: {
           trigger: 'axis'
         },
@@ -534,7 +544,22 @@ export default {
   width: 95%;
   height: 400px;
 }
-.blockLine{
+.medTab{
+  position: relative;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);
+  margin: 20px;
+  top: 30px;
+  width: 95%;
+  height: 400px;
+}
+.medBlockLine{
+  position: relative;
+  width: 95%;
+  height: 400px;
+  margin: 20px;
+  top: 30px;
+}
+/* .blockLine{
   position: relative;
   width: 95%;
   height: 450px;
@@ -555,7 +580,7 @@ export default {
     width: 1200px;
     height: 400px;
   }
-}
+} */
 .medpressureTable{
   position: relative;
   width: 95%;
