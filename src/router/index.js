@@ -6,6 +6,7 @@ Vue.use(Router)
 /* Layout */
 import Layout from '@/layout'
 
+import DataQueryRouter from './modules/DataQuery.js'
 import WproEnergyMonitoringRouter from './modules/WproEnergyMonitoring.js'
 import LabelPageRouter from './modules/LabelPage.js'
 
@@ -92,72 +93,98 @@ export const constantRoutes = [
     ]
   },
 
-  {
-    path: '/dataquery',
-    name: 'DataQuery',
-    meta: { title: '能耗/碳排数据查询', icon: 'form' },
-    component: Layout,
-    redirect: '/dataquery/refiningdepartment',
-    children: [
-      {
-        path: 'refiningdepartment',
-        name: 'RefiningDepartment',
-        component: () => import('@/views/DataQuery/RefiningDepartment'),
-        meta: { title: '能耗/碳排数据查询' }
-      },
-      {
-        path: 'lianyoubu',
-        name: 'Lianyoubu',
-        component: () => import('@/views/DataQuery/Lianyoubu'),
-        meta: { title: '炼油部' }
-      },
-      {
-        path: 'xitingbu',
-        name: 'Xitingbu',
-        component: () => import('@/views/DataQuery/Xitingbu'),
-        meta: { title: '烯烃部' }
-      },
-      {
-        path: 'fangtinghuagongbu',
-        name: 'Fangtinghuagongbu',
-        component: () => import('@/views/DataQuery/Fangtinghuagongbu'),
-        meta: { title: '芳烃化工部' }
-      },
-      {
-        path: 'fangtinglianyoubu',
-        name: 'Fangtinglianyoubu',
-        component: () => import('@/views/DataQuery/Fangtinglianyoubu'),
-        meta: { title: '芳烃炼油部' }
-      },
-      {
-        path: 'chuyunbu',
-        name: 'Chuyunbu',
-        component: () => import('@/views/DataQuery/Chuyunbu'),
-        meta: { title: '储运部' }
-      }
-    ]
-  },
+  // {
+  //   path: '/dataquery',
+  //   name: 'DataQuery',
+  //   meta: { title: '能耗/碳排数据查询', icon: 'form' },
+  //   component: Layout,
+  //   redirect: '/dataquery/refiningdepartment',
+  //   children: [
+  //     {
+  //       path: 'refiningdepartment',
+  //       name: 'RefiningDepartment',
+  //       component: () => import('@/views/DataQuery/RefiningDepartment'),
+  //       meta: { title: '能耗/碳排数据查询' }
+  //     },
+  //     {
+  //       path: 'lianyoubu',
+  //       name: 'Lianyoubu',
+  //       component: () => import('@/views/DataQuery/Lianyoubu'),
+  //       meta: { title: '炼油部' }
+  //     },
+  //     {
+  //       path: 'xitingbu',
+  //       name: 'Xitingbu',
+  //       component: () => import('@/views/DataQuery/Xitingbu'),
+  //       meta: { title: '烯烃部' }
+  //     },
+  //     {
+  //       path: 'fangtinghuagongbu',
+  //       name: 'Fangtinghuagongbu',
+  //       component: () => import('@/views/DataQuery/Fangtinghuagongbu'),
+  //       meta: { title: '芳烃化工部' }
+  //     },
+  //     {
+  //       path: 'fangtinglianyoubu',
+  //       name: 'Fangtinglianyoubu',
+  //       component: () => import('@/views/DataQuery/Fangtinglianyoubu'),
+  //       meta: { title: '芳烃炼油部' }
+  //     },
+  //     {
+  //       path: 'chuyunbu',
+  //       name: 'Chuyunbu',
+  //       component: () => import('@/views/DataQuery/Chuyunbu'),
+  //       meta: { title: '储运部' }
+  //     }
+  //   ]
+  // },
+  DataQueryRouter,
+
   WproEnergyMonitoringRouter,
 
   {
     path: '/emissionreport',
     component: Layout,
-    redirect: '/emissionreport',
+    redirect: '/emissionreport/carbonassets',
     name: 'EmissionReport',
     meta: { title: '碳排报告', icon: 'link' },
     children: [
       {
-        path: 'systemtable',
-        name: 'SystemTable',
-        component: () => import('@/views/EmissionReport/SystemTable'),
-        meta: { title: '系统填报表格' }
+        path: 'carbonassets',
+        name: 'CarbonAssets',
+        component: () => import('@/views/EmissionReport/CarbonAssets'),
+        meta: { title: '碳资产管理系统' }
       },
       {
-        path: 'carbonreport',
-        name: 'CarbonReport',
-        component: () => import('@/views/EmissionReport/CarbonReport'),
-        meta: { title: '碳排报告' }
-      }
+        path: 'carbonmarket',
+        name: 'CarbonMarket',
+        component: () => import('@/views/EmissionReport/CarbonMarket'),
+        meta: { title: '全国碳市场管理平台' }
+      },
+      {
+        path: 'chemicalcaliber',
+        name: 'ChemicalCaliber',
+        component: () => import('@/views/EmissionReport/ChemicalCaliber'),
+        meta: { title: '石油化工口径报表' }
+      },
+      {
+        path: 'carbonemissionsh',
+        name: 'CarbonEmissionSH',
+        component: () => import('@/views/EmissionReport/CarbonEmissionSH'),
+        meta: { title: '上海市碳排放报告直报系统' }
+      },
+      // {
+      //   path: 'systemtable',
+      //   name: 'SystemTable',
+      //   component: () => import('@/views/EmissionReport/SystemTable'),
+      //   meta: { title: '系统填报表格' }
+      // },
+      // {
+      //   path: 'carbonreport',
+      //   name: 'CarbonReport',
+      //   component: () => import('@/views/EmissionReport/CarbonReport'),
+      //   meta: { title: '碳排报告' }
+      // }
     ]
   },
   LabelPageRouter,
