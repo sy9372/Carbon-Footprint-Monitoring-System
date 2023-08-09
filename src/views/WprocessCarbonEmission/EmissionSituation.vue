@@ -276,19 +276,19 @@ export default {
       })
     },
     Lianyoubu() {
-      this.$router.push({ path: '/dataquery/lianyoubu' })
+      this.$router.push({ path: '/documentquery/lianyoubu' })
     },
     Xitingbu() {
-      this.$router.push({ path: '/dataquery/xitingbu' })
+      this.$router.push({ path: '/documentquery/xitingbu' })
     },
     Fangtinghuagong() {
-      this.$router.push({ path: '/dataquery/fangtinghuagongbu' })
+      this.$router.push({ path: '/documentquery/fangtinghuagongbu' })
     },
     Fangtinglianyou() {
-      this.$router.push({ path: '/dataquery/fangtinglianyoubu' })
+      this.$router.push({ path: '/documentquery/fangtinglianyoubu' })
     },
     Chuyunbu() {
-      this.$router.push({ path: '/dataquery/chuyunbu' })
+      this.$router.push({ path: '/documentquery/chuyunbu' })
     }
   }
 }

@@ -22,17 +22,17 @@ export default {
         name: 'DataQuery',
         label: '能耗/碳排数据查询',
         icon: 'el-icon-s-data',
-        path: '/dataquery/refiningdepartment'
+        path: '/dataquery/companyentity'
       }, {
-        name: 'WprocessCarbonEmission',
+        name: 'WproEnergyMonitoring',
         label: '全流程能效监控',
         icon: 'el-icon-s-custom',
-        path: '/wprocesscarbonemission/criticalequipment'
+        path: '/wproenergymonitoring/criticalequipment/jiarelu/guolu'
       }, {
         name: 'EmissionReport',
         label: '碳排报告',
         icon: 'el-icon-s-marketing',
-        path: '/emissionreport/systemtable'
+        path: '/emissionreport/carbonassets'
       }]
     }
   },
