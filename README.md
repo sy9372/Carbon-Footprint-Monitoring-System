@@ -4,7 +4,7 @@
 ```
 # 克隆项目
 
-git clone https://gitee.com/siyu-g/sh-base-vue2.git
+git clone [https://gitee.com/siyu-g/sh-base-vue2.git](https://github.com/sy9372/Carbon-Footprint-Monitoring-System.git)
 
 # 进入项目目录
 
