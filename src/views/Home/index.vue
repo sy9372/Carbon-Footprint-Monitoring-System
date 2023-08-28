@@ -24,10 +24,10 @@ export default {
         icon: 'el-icon-s-data',
         path: '/dataquery/companyentity'
       }, {
-        name: 'WproEnergyMonitoring',
-        label: '全流程能效监控',
+        name: 'Criticalequipment',
+        label: '关键设备能效监控',
         icon: 'el-icon-s-custom',
-        path: '/wproenergymonitoring/criticalequipment/jiarelu/guolu'
+        path: '/criticalequipment/gjlianyoubu/lyjiarelu'
       }, {
         name: 'EmissionReport',
         label: '碳排报告',

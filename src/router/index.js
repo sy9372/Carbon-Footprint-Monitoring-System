@@ -7,8 +7,8 @@ Vue.use(Router)
 import Layout from '@/layout'
 
 import DataQueryRouter from './modules/DataQuery.js'
-import WproEnergyMonitoringRouter from './modules/WproEnergyMonitoring.js'
-import LabelPageRouter from './modules/LabelPage.js'
+import CriticalequipmentRouter from './modules/Criticalequipment.js'
+// import LabelPageRouter from './modules/LabelPage.js'
 
 /**
  * Note: sub-menu only appear when route children.length >= 1
@@ -134,7 +134,7 @@ export const constantRoutes = [
   },
   DataQueryRouter,
 
-  WproEnergyMonitoringRouter,
+  CriticalequipmentRouter,
 
   {
     path: '/emissionreport',
@@ -166,7 +166,7 @@ export const constantRoutes = [
         name: 'CarbonEmissionSH',
         component: () => import('@/views/EmissionReport/CarbonEmissionSH'),
         meta: { title: '上海市碳排放报告直报系统' }
-      },
+      }
       // {
       //   path: 'systemtable',
       //   name: 'SystemTable',
@@ -181,7 +181,7 @@ export const constantRoutes = [
       // }
     ]
   },
-  LabelPageRouter,
+  //  LabelPageRouter,
 
   // 404 page must be placed at the end !!!
   { path: '*', redirect: '/404', hidden: true }
