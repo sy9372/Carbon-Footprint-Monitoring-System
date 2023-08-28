@@ -1,7 +1,7 @@
 ```
 # 克隆项目
 
-git clone https://github.com/PanJiaChen/vue-admin-template.git
+git clone https://gitee.com/siyu-g/sh-base-vue2.git
 
 # 进入项目目录
 
