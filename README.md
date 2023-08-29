@@ -8,7 +8,7 @@ git clone [https://gitee.com/siyu-g/sh-base-vue2.git](https://github.com/sy9372/
 
 # 进入项目目录
 
-cd vue-admin-template
+cd Carbon-Footprint-Monitoring-System
 
 # 安装依赖
 
