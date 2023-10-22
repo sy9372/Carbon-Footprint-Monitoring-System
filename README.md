@@ -1,4 +1,5 @@
 # Carbon Footprint Monitoring System
+Unfinished version, will be updated later as the project progresses.
 ## Vue2-based system framework for Shanghai Petrochemical carbon footprint monitoring integration project
 
 ```
